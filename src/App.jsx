@@ -179,9 +179,9 @@ const stG=st=>({
 
 /* ─── CSS ─────────────────────────────────────────────────────────────── */
 const CSS=`
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600;700&family=Caveat:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body,input,textarea,select,button{font-family:'DM Sans',sans-serif}
+body,input,textarea,select,button{font-family:'Poppins',sans-serif;-webkit-font-smoothing:antialiased;} h1,h2,h3{font-family:'Poppins',sans-serif;}
 @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
 @keyframes scaleIn{from{opacity:0;transform:scale(.91)}to{opacity:1;transform:scale(1)}}
 @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
@@ -254,8 +254,8 @@ function SuccessOverlay({name,onDone}){
     <div className="fl" style={{width:110,height:110,borderRadius:"50%",background:"linear-gradient(135deg,#022c22,#065f46,#10b981,#34d399)",display:"flex",alignItems:"center",justifyContent:"center",margin:"0 auto 28px",animation:"popIn .7s cubic-bezier(.34,1.56,.64,1) both,pring 2.5s ease-out .9s",boxShadow:"0 0 0 20px rgba(52,211,153,.1),0 20px 60px rgba(16,185,129,.55)"}}>
       <svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{strokeDasharray:50,animation:"checkDraw .55s ease .75s both"}}><polyline points="20 6 9 17 4 12"/></svg>
     </div>
-    <h1 style={{fontFamily:"'Playfair Display',serif",fontSize:46,color:"#fff",fontWeight:800,lineHeight:1.1,marginBottom:14,animation:"txtUp .5s ease .45s both"}}>{first?`You're in, ${first}!`:"Submitted!"}</h1>
-    <p style={{color:"#6ee7b7",fontSize:16,lineHeight:1.85,marginBottom:20,animation:"txtUp .5s ease .6s both",fontWeight:300}}>We received your application and a confirmation email is on its way. Track your status anytime in "My Status". ☕</p>
+    <h1 style={{fontFamily:"'Poppins',sans-serif",fontSize:42,color:"#fff",fontWeight:800,lineHeight:1.1,letterSpacing:"-.8px",marginBottom:14,animation:"txtUp .5s ease .45s both"}}>{first?`You're in, ${first}!`:"Submitted!"}</h1>
+    <p style={{color:"#7de8b8",fontSize:16,lineHeight:1.85,marginBottom:20,animation:"txtUp .5s ease .6s both",fontWeight:300}}>We received your application and a confirmation email is on its way. Track your status anytime in "My Status". ☕</p>
     <p style={{color:"rgba(255,255,255,.2)",fontSize:12,animation:"txtUp .5s ease .9s both"}}>Tap anywhere to close</p>
   </div></div></>);
 }
@@ -294,10 +294,10 @@ function Chatbot({ctx="apply"}){
       </button>
       {!open&&<div style={{position:"absolute",top:0,right:0,width:18,height:18,borderRadius:"50%",background:"linear-gradient(135deg,#10b981,#34d399)",border:"2px solid #022c22",display:"flex",alignItems:"center",justifyContent:"center",fontSize:8,color:"#fff",fontWeight:800}}>AI</div>}
     </div>
-    {open&&(<div style={{position:"fixed",bottom:96,right:24,zIndex:999,width:"min(360px,calc(100vw - 32px))",maxHeight:500,background:"#0a1a14",borderRadius:20,overflow:"hidden",boxShadow:"0 24px 80px rgba(0,0,0,.6)",display:"flex",flexDirection:"column",animation:"chatPop .38s cubic-bezier(.34,1.56,.64,1) both",border:"1px solid rgba(52,211,153,.15)"}}>
+    {open&&(<div style={{position:"fixed",bottom:96,right:24,zIndex:999,width:"min(360px,calc(100vw - 32px))",maxHeight:500,background:"#0d2018",borderRadius:20,overflow:"hidden",boxShadow:"0 24px 80px rgba(0,0,0,.6)",display:"flex",flexDirection:"column",animation:"chatPop .38s cubic-bezier(.34,1.56,.64,1) both",border:"1px solid rgba(52,211,153,.15)"}}>
       <div style={{background:BG,padding:"14px 18px",display:"flex",alignItems:"center",gap:12}}>
         <div className="fl" style={{width:38,height:38,borderRadius:"50%",background:"rgba(52,211,153,.15)",border:"1.5px solid rgba(52,211,153,.3)",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}><Logo s={22}/></div>
-        <div><div style={{fontFamily:"'Playfair Display',serif",fontSize:17,color:"#fff",fontWeight:700}}>Brew</div><div style={{color:"#6ee7b7",fontSize:11,display:"flex",alignItems:"center",gap:5,marginTop:1}}><span style={{width:6,height:6,borderRadius:"50%",background:"#34d399",boxShadow:"0 0 6px #34d399",display:"inline-block"}}/>AI · Hope Coffee</div></div>
+        <div><div style={{fontFamily:"'Poppins',sans-serif",fontSize:16,color:"#fff",fontWeight:700,letterSpacing:"-.2px"}}>Brew</div><div style={{color:"#7de8b8",fontSize:11,display:"flex",alignItems:"center",gap:5,marginTop:1}}><span style={{width:6,height:6,borderRadius:"50%",background:"#2ecc8a",boxShadow:"0 0 6px #34d399",display:"inline-block"}}/>AI · Hope Coffee</div></div>
       </div>
       <div style={{flex:1,overflowY:"auto",padding:"12px 12px 6px",display:"flex",flexDirection:"column",gap:10,minHeight:0}}>
         {msgs.map((m,i)=>(<div key={i} style={{display:"flex",justifyContent:m.role==="user"?"flex-end":"flex-start",animation:"msgIn .25s ease both"}}>
@@ -306,10 +306,10 @@ function Chatbot({ctx="apply"}){
             {m.text.split(/(\*\*[^*]+\*\*)/).map((p,j)=>p.startsWith("**")&&p.endsWith("**")?<strong key={j}>{p.slice(2,-2)}</strong>:<React.Fragment key={j}>{p}</React.Fragment>)}
           </div>
         </div>))}
-        {busy&&<div style={{display:"flex",gap:8}}><div style={{width:26,height:26,borderRadius:"50%",background:"linear-gradient(135deg,#065f46,#10b981)",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}><Logo s={14}/></div><div style={{background:"rgba(255,255,255,.06)",borderRadius:"18px 18px 18px 4px",padding:"10px 14px",display:"flex",gap:5,alignItems:"center"}}>{[0,1,2].map(d=><span key={d} style={{width:7,height:7,borderRadius:"50%",background:"#34d399",display:"inline-block",animation:`dot 1.2s ease ${d*.22}s infinite`}}/>)}</div></div>}
+        {busy&&<div style={{display:"flex",gap:8}}><div style={{width:26,height:26,borderRadius:"50%",background:"linear-gradient(135deg,#065f46,#10b981)",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}><Logo s={14}/></div><div style={{background:"rgba(255,255,255,.06)",borderRadius:"18px 18px 18px 4px",padding:"10px 14px",display:"flex",gap:5,alignItems:"center"}}>{[0,1,2].map(d=><span key={d} style={{width:7,height:7,borderRadius:"50%",background:"#2ecc8a",display:"inline-block",animation:`dot 1.2s ease ${d*.22}s infinite`}}/>)}</div></div>}
         <div ref={endR}/>
       </div>
-      {msgs.length<=1&&<div style={{padding:"0 12px 8px",display:"flex",gap:6,flexWrap:"wrap"}}>{(ctx==="status"?["What does my status mean?","When will I hear back?"]:["How do I apply?","What positions are open?","What's the pay?"]).map(q=><button key={q} type="button" onClick={()=>setInp(q)} className="btn" style={{padding:"5px 11px",borderRadius:18,border:"1px solid rgba(52,211,153,.2)",background:"rgba(52,211,153,.06)",color:"#6ee7b7",fontSize:11,fontWeight:600}}>{q}</button>)}</div>}
+      {msgs.length<=1&&<div style={{padding:"0 12px 8px",display:"flex",gap:6,flexWrap:"wrap"}}>{(ctx==="status"?["What does my status mean?","When will I hear back?"]:["How do I apply?","What positions are open?","What's the pay?"]).map(q=><button key={q} type="button" onClick={()=>setInp(q)} className="btn" style={{padding:"5px 11px",borderRadius:18,border:"1px solid rgba(52,211,153,.2)",background:"rgba(52,211,153,.06)",color:"#7de8b8",fontSize:11,fontWeight:600}}>{q}</button>)}</div>}
       <div style={{padding:"8px 12px 12px",borderTop:"1px solid rgba(255,255,255,.05)",background:"rgba(0,0,0,.2)"}}>
         <div style={{display:"flex",gap:8,alignItems:"flex-end"}}>
           <textarea value={inp} onChange={e=>setInp(e.target.value.slice(0,800))} onKeyDown={e=>{if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();send();}}} placeholder="Ask Brew anything…" rows={1} style={{flex:1,resize:"none",border:"1px solid rgba(52,211,153,.2)",borderRadius:12,padding:"9px 12px",fontSize:13,color:"#d1fae5",outline:"none",background:"rgba(255,255,255,.04)",maxHeight:80,overflowY:"auto"}}/>
@@ -323,8 +323,8 @@ function Chatbot({ctx="apply"}){
 }
 
 /* ─── FORM HELPERS ────────────────────────────────────────────────────── */
-const FL=({text,opt})=>(<div style={{color:"#6ee7b7",fontSize:11,fontWeight:700,marginBottom:6,letterSpacing:".06em",textTransform:"uppercase"}}>{text}{opt&&<span style={{textTransform:"none",fontWeight:400,color:"rgba(110,231,183,.4)",marginLeft:5}}>(optional)</span>}</div>);
-const FD=({label})=>(<div style={{display:"flex",alignItems:"center",gap:12,margin:"4px 0 16px"}}><div style={{flex:1,height:1,background:"linear-gradient(90deg,rgba(52,211,153,.4),transparent)"}}/><span style={{fontFamily:"'Caveat',cursive",fontSize:15,fontWeight:700,color:"#34d399",padding:"3px 14px",background:"rgba(52,211,153,.08)",borderRadius:24,border:"1px solid rgba(52,211,153,.2)"}}>{label}</span><div style={{flex:1,height:1,background:"linear-gradient(90deg,transparent,rgba(52,211,153,.4))"}}/></div>);
+const FL=({text,opt})=>(<div style={{color:"#7de8b8",fontSize:11,fontWeight:700,marginBottom:6,letterSpacing:".06em",textTransform:"uppercase"}}>{text}{opt&&<span style={{textTransform:"none",fontWeight:400,color:"rgba(110,231,183,.4)",marginLeft:5}}>(optional)</span>}</div>);
+const FD=({label})=>(<div style={{display:"flex",alignItems:"center",gap:12,margin:"4px 0 16px"}}><div style={{flex:1,height:1,background:"linear-gradient(90deg,rgba(52,211,153,.4),transparent)"}}/><span style={{fontFamily:"'Poppins',sans-serif",fontSize:15,fontWeight:700,color:"#2ecc8a",padding:"3px 14px",background:"rgba(52,211,153,.08)",borderRadius:24,border:"1px solid rgba(52,211,153,.2)"}}>{label}</span><div style={{flex:1,height:1,background:"linear-gradient(90deg,transparent,rgba(52,211,153,.4))"}}/></div>);
 
 /* ─── APPLY PAGE ──────────────────────────────────────────────────────── */
 function ApplyPage({onSubmit}){
@@ -403,16 +403,16 @@ function ApplyPage({onSubmit}){
 
   return(<>
     {win&&<SuccessOverlay name={winN} onDone={()=>setWin(false)}/>}
-    <div style={{minHeight:"100%",background:"#040d0a"}}>
+    <div style={{minHeight:"100%",background:"#060f0a"}}>
       {/* Hero */}
-      <div style={{position:"relative",padding:"52px 24px 72px",overflow:"hidden",background:"linear-gradient(160deg,#022c22 0%,#065f46 40%,#047857 70%,#022c22 100%)",backgroundSize:"400% 400%",animation:"bgFlow 12s ease infinite"}}>
+      <div style={{position:"relative",padding:"52px 24px 72px",overflow:"hidden",background:"linear-gradient(145deg,#011a12 0%,#023a28 25%,#0a5c3a 50%,#0f7a4a 70%,#023a28 100%)",backgroundSize:"400% 400%",animation:"bgFlow 14s ease infinite"}}>
         <div style={{position:"absolute",top:-60,right:-60,width:300,height:300,borderRadius:"50%",background:"radial-gradient(circle,rgba(52,211,153,.14),transparent 70%)",pointerEvents:"none"}}/>
         <div style={{position:"relative",zIndex:2,maxWidth:580,margin:"0 auto"}}>
           <div className={mounted?"fu":""} style={{display:"flex",alignItems:"center",gap:18,marginBottom:28}}>
             <div className="fl" style={{background:"rgba(255,255,255,.12)",borderRadius:20,padding:"12px 14px",backdropFilter:"blur(12px)",border:"1px solid rgba(255,255,255,.18)"}}><Logo s={54}/></div>
-            <div><div style={{fontFamily:"'Caveat',cursive",color:"#6ee7b7",fontSize:16,fontWeight:700,marginBottom:2}}>Now Hiring at</div><div style={{fontFamily:"'Playfair Display',serif",fontSize:26,color:"#fff",fontWeight:700}}>Hope Coffee Melissa</div></div>
+            <div><div style={{fontFamily:"'Poppins',sans-serif",color:"#7de8b8",fontSize:16,fontWeight:700,marginBottom:2}}>Now Hiring at</div><div style={{fontFamily:"'Poppins',sans-serif",fontSize:22,color:"#fff",fontWeight:700,letterSpacing:"-.3px"}}>Hope Coffee Melissa</div></div>
           </div>
-          <h1 className={`ht ${mounted?"fu":""}`} style={{fontFamily:"'Playfair Display',serif",fontSize:52,color:"#fff",fontWeight:800,margin:"0 0 16px",lineHeight:1.08,animationDelay:"70ms"}}>Join Our Team ☕</h1>
+          <h1 className={`ht ${mounted?"fu":""}`} style={{fontFamily:"'Poppins',sans-serif",fontSize:46,color:"#fff",fontWeight:800,margin:"0 0 16px",lineHeight:1.1,letterSpacing:"-1px",animationDelay:"70ms"}}>Join Our Team ☕</h1>
           <p className={mounted?"fu":""} style={{color:"rgba(110,231,183,.85)",fontSize:16,margin:"0 0 28px",lineHeight:1.8,maxWidth:460,fontWeight:300,animationDelay:"130ms"}}>Melissa's gathering place — craft coffee, good people, second chances. Every application is read by a real human.</p>
           <div className={mounted?"fu":""} style={{display:"flex",gap:10,flexWrap:"wrap",animationDelay:"190ms"}}>
             {["Welcoming team","$11–13/hr","Flexible hours","Community-driven"].map(t=><span key={t} style={{background:"rgba(255,255,255,.1)",color:"#a7f3d0",fontSize:12,padding:"6px 16px",borderRadius:24,fontWeight:500,border:"1px solid rgba(255,255,255,.15)"}}>✓ {t}</span>)}
@@ -421,8 +421,8 @@ function ApplyPage({onSubmit}){
       </div>
       {/* Form */}
       <div style={{maxWidth:580,margin:"0 auto",padding:"0 16px 80px"}}>
-        <div className={`${mounted?"si":""} fc`} style={{background:"linear-gradient(160deg,#0a1a14,#0d1f18)",borderRadius:24,padding:"36px 32px",marginTop:-36,boxShadow:"0 30px 80px rgba(0,0,0,.5)",border:"1px solid rgba(52,211,153,.12)"}}>
-          <div style={{background:"rgba(52,211,153,.06)",borderRadius:12,padding:"14px 18px",marginBottom:24,border:"1px solid rgba(52,211,153,.15)"}}><p style={{color:"#6ee7b7",fontSize:13,lineHeight:1.75,margin:0}}><strong>🔒 Your privacy matters.</strong> Job-related info only. You'll receive a confirmation email and notifications when your status changes.</p></div>
+        <div className={`${mounted?"si":""} fc`} style={{background:"linear-gradient(160deg,#0a1a14,#0d1f18)",borderRadius:24,padding:"36px 32px",marginTop:-36,boxShadow:"0 30px 80px rgba(0,0,0,.5)",border:"1px solid rgba(52,211,153,.18)"}}>
+          <div style={{background:"rgba(52,211,153,.06)",borderRadius:12,padding:"14px 18px",marginBottom:24,border:"1px solid rgba(52,211,153,.15)"}}><p style={{color:"#7de8b8",fontSize:13,lineHeight:1.75,margin:0}}><strong>🔒 Your privacy matters.</strong> Job-related info only. You'll receive a confirmation email and notifications when your status changes.</p></div>
           <div style={{display:"flex",flexDirection:"column",gap:20}}>
             <FD label="Contact Info"/>
             <div style={{display:"flex",flexDirection:"column",gap:14}}>
@@ -449,7 +449,7 @@ function ApplyPage({onSubmit}){
                         <span style={{color:"#e2fdf5",fontSize:14,fontWeight:700}}>{opt.v}</span>
                       </div>
                       <div style={{display:"flex",gap:6,flexWrap:"wrap",marginBottom:7}}>
-                        <span style={{background:"rgba(52,211,153,.12)",color:"#6ee7b7",fontSize:10,fontWeight:700,padding:"2px 8px",borderRadius:10,border:"1px solid rgba(52,211,153,.2)"}}>{opt.pay}</span>
+                        <span style={{background:"rgba(52,211,153,.12)",color:"#7de8b8",fontSize:10,fontWeight:700,padding:"2px 8px",borderRadius:10,border:"1px solid rgba(52,211,153,.2)"}}>{opt.pay}</span>
                         <span style={{color:"rgba(110,231,183,.45)",fontSize:10,fontWeight:500,alignSelf:"center"}}>{opt.hrs}</span>
                       </div>
                       <p style={{color:"rgba(110,231,183,.6)",fontSize:12,lineHeight:1.6,margin:0}}>{opt.desc}</p>
@@ -476,8 +476,8 @@ function ApplyPage({onSubmit}){
                   :<div onDragOver={e=>{e.preventDefault();setDrag(true)}} onDragLeave={()=>setDrag(false)} onDrop={e=>{e.preventDefault();setDrag(false);if(e.dataTransfer.files[0])pickFile(e.dataTransfer.files[0]);}} onClick={()=>fRef.current?.click()} style={{width:"100%",minHeight:130,borderRadius:14,border:`2px dashed ${drag?"rgba(52,211,153,.6)":rName?"rgba(52,211,153,.4)":"rgba(255,255,255,.1)"}`,background:drag?"rgba(52,211,153,.06)":rName?"rgba(52,211,153,.03)":"rgba(255,255,255,.02)",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",gap:8,cursor:"pointer",padding:"18px 16px",transition:"all .2s"}}>
                     <input ref={fRef} type="file" accept=".pdf,.doc,.docx,.txt" style={{display:"none"}} onChange={e=>{if(e.target.files[0])pickFile(e.target.files[0]);}}/>
                     {rName
-                      ?<><div style={{width:44,height:44,borderRadius:"50%",background:"linear-gradient(135deg,#065f46,#10b981)",display:"flex",alignItems:"center",justifyContent:"center"}}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round"><polyline points="20 6 9 17 4 12"/></svg></div><p style={{color:"#6ee7b7",fontSize:13,fontWeight:700,margin:0}}>{rName}</p><p style={{color:"rgba(110,231,183,.45)",fontSize:11,margin:0}}>Click to replace · AI will read this file</p></>
-                      :<><div style={{width:44,height:44,borderRadius:"50%",background:"rgba(52,211,153,.08)",display:"flex",alignItems:"center",justifyContent:"center"}}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#34d399" strokeWidth="2" strokeLinecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div><p style={{color:"#6ee7b7",fontSize:13,fontWeight:600,margin:0}}>Drag & drop or click to upload</p><p style={{color:"rgba(110,231,183,.45)",fontSize:11,margin:0}}>PDF, Word, or .txt · max 800KB</p></>}
+                      ?<><div style={{width:44,height:44,borderRadius:"50%",background:"linear-gradient(135deg,#065f46,#10b981)",display:"flex",alignItems:"center",justifyContent:"center"}}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round"><polyline points="20 6 9 17 4 12"/></svg></div><p style={{color:"#7de8b8",fontSize:13,fontWeight:700,margin:0}}>{rName}</p><p style={{color:"rgba(110,231,183,.45)",fontSize:11,margin:0}}>Click to replace · AI will read this file</p></>
+                      :<><div style={{width:44,height:44,borderRadius:"50%",background:"rgba(52,211,153,.08)",display:"flex",alignItems:"center",justifyContent:"center"}}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#34d399" strokeWidth="2" strokeLinecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div><p style={{color:"#7de8b8",fontSize:13,fontWeight:600,margin:0}}>Drag & drop or click to upload</p><p style={{color:"rgba(110,231,183,.45)",fontSize:11,margin:0}}>PDF, Word, or .txt · max 800KB</p></>}
                     {fErr&&<p style={{color:"#f87171",fontSize:12,margin:"4px 0 0",textAlign:"center"}}>{fErr}</p>}
                   </div>
                 }
@@ -531,20 +531,20 @@ function StatusPage({applicants}){
   const first=found?found.full_name.split(" ")[0]:"";
   const BG="linear-gradient(165deg,#065f46,#022c22)";
 
-  return(<div style={{minHeight:"100%",background:"#040d0a"}}>
-    <div style={{position:"relative",padding:"44px 24px 56px",overflow:"hidden",background:"linear-gradient(160deg,#022c22,#065f46 50%,#022c22)"}}>
+  return(<div style={{minHeight:"100%",background:"#060f0a"}}>
+    <div style={{position:"relative",padding:"44px 24px 56px",overflow:"hidden",background:"linear-gradient(145deg,#011a12,#023a28 40%,#0a5c3a 70%,#011a12)"}}>
       <div style={{position:"relative",zIndex:2,maxWidth:560,margin:"0 auto"}}>
         <div className={mounted?"fu":""} style={{display:"flex",alignItems:"center",gap:14,marginBottom:20}}>
           <div className="fl" style={{background:"rgba(255,255,255,.12)",borderRadius:16,padding:"9px 11px",border:"1px solid rgba(255,255,255,.18)"}}><Logo s={40}/></div>
-          <div><div style={{fontFamily:"'Playfair Display',serif",fontSize:24,color:"#fff",fontWeight:700}}>My Application</div><div style={{fontFamily:"'Caveat',cursive",color:"#6ee7b7",fontSize:15,marginTop:2}}>Hope Coffee Melissa</div></div>
+          <div><div style={{fontFamily:"'Poppins',sans-serif",fontSize:24,color:"#fff",fontWeight:700}}>My Application</div><div style={{fontFamily:"'Poppins',sans-serif",color:"#7de8b8",fontSize:15,marginTop:2}}>Hope Coffee Melissa</div></div>
         </div>
-        <h1 style={{fontFamily:"'Playfair Display',serif",fontSize:36,color:"#fff",fontWeight:800,margin:"0 0 10px"}}>{stage==="found"?`Welcome back, ${first}! ☕`:"Check Your Status"}</h1>
+        <h1 style={{fontFamily:"'Poppins',sans-serif",fontSize:32,color:"#fff",fontWeight:800,margin:"0 0 10px",letterSpacing:"-.5px"}}>{stage==="found"?`Welcome back, ${first}! ☕`:"Check Your Status"}</h1>
         <p style={{color:"rgba(110,231,183,.7)",fontSize:14,lineHeight:1.75,fontWeight:300}}>{stage==="found"?"Here's everything about your application.":stage==="verify"?"We sent a 6-digit code to your email.":"Enter the email you used when applying."}</p>
       </div>
     </div>
     <div style={{maxWidth:580,margin:"0 auto",padding:"0 16px 80px"}}>
-      {stage==="email"&&<div className={mounted?"si":""} style={{background:"#0a1a14",borderRadius:20,padding:"24px",marginTop:-24,boxShadow:"0 20px 60px rgba(0,0,0,.4)",marginBottom:14,border:"1px solid rgba(52,211,153,.12)"}}>
-        <div style={{fontFamily:"'Caveat',cursive",fontSize:15,color:"#34d399",fontWeight:700,marginBottom:12}}>🔍 Look up your application</div>
+      {stage==="email"&&<div className={mounted?"si":""} style={{background:"#0d2018",borderRadius:20,padding:"24px",marginTop:-24,boxShadow:"0 20px 60px rgba(0,0,0,.4)",marginBottom:14,border:"1px solid rgba(52,211,153,.18)"}}>
+        <div style={{fontFamily:"'Poppins',sans-serif",fontSize:15,color:"#2ecc8a",fontWeight:700,marginBottom:12}}>🔍 Look up your application</div>
         <div style={{display:"flex",gap:10,flexWrap:"wrap"}}>
           <input type="email" value={emailIn} onChange={e=>setEmailIn(e.target.value.slice(0,200))} onKeyDown={e=>{if(e.key==="Enter")lookup();}} placeholder="your@email.com" style={{flex:"1 1 200px",background:"rgba(255,255,255,.03)",border:"1.5px solid rgba(52,211,153,.2)",borderRadius:12,padding:"12px 16px",color:"#e2fdf5",fontSize:14,outline:"none"}}/>
           <button type="button" onClick={lookup} disabled={sending} className="btn" style={{padding:"12px 22px",borderRadius:12,background:BG,color:"#fff",fontSize:14,fontWeight:700,boxShadow:"0 4px 18px rgba(6,95,70,.4)",whiteSpace:"nowrap",flexShrink:0}}>
@@ -552,8 +552,8 @@ function StatusPage({applicants}){
           </button>
         </div>
       </div>}
-      {stage==="verify"&&<div className="si" style={{background:"#0a1a14",borderRadius:20,padding:"28px",marginTop:-24,boxShadow:"0 20px 60px rgba(0,0,0,.4)",border:"1px solid rgba(52,211,153,.12)"}}>
-        <div style={{textAlign:"center",marginBottom:20}}><div style={{fontSize:44,marginBottom:10}}>📧</div><h3 style={{fontFamily:"'Playfair Display',serif",fontSize:22,color:"#fff",fontWeight:700,margin:"0 0 8px"}}>Check your email</h3><p style={{color:"#6ee7b7",fontSize:13,lineHeight:1.7}}>We sent a 6-digit code to <strong>{emailIn}</strong></p></div>
+      {stage==="verify"&&<div className="si" style={{background:"#0d2018",borderRadius:20,padding:"28px",marginTop:-24,boxShadow:"0 20px 60px rgba(0,0,0,.4)",border:"1px solid rgba(52,211,153,.18)"}}>
+        <div style={{textAlign:"center",marginBottom:20}}><div style={{fontSize:44,marginBottom:10}}>📧</div><h3 style={{fontFamily:"'Poppins',sans-serif",fontSize:22,color:"#fff",fontWeight:700,margin:"0 0 8px"}}>Check your email</h3><p style={{color:"#7de8b8",fontSize:13,lineHeight:1.7}}>We sent a 6-digit code to <strong>{emailIn}</strong></p></div>
         <div style={{display:"flex",gap:10,flexWrap:"wrap",marginBottom:12}}>
           <input type="text" value={codeIn} onChange={e=>setCodeIn(e.target.value.replace(/\D/g,"").slice(0,6))} onKeyDown={e=>{if(e.key==="Enter")verify();}} placeholder="000000" maxLength={6} style={{flex:"1 1 160px",background:"rgba(255,255,255,.03)",border:`1.5px solid ${codeErr?"#ef4444":"rgba(52,211,153,.2)"}`,borderRadius:12,padding:"14px 16px",color:"#e2fdf5",fontSize:24,fontWeight:700,letterSpacing:"0.3em",textAlign:"center",outline:"none"}}/>
           <button type="button" onClick={verify} className="btn" style={{padding:"12px 22px",borderRadius:12,background:BG,color:"#fff",fontSize:14,fontWeight:700,flexShrink:0}}>Verify →</button>
@@ -561,11 +561,11 @@ function StatusPage({applicants}){
         {codeErr&&<p style={{color:"#f87171",fontSize:12,margin:"0 0 10px"}}>{codeErr}</p>}
         <button type="button" onClick={reset} style={{background:"none",border:"none",color:"rgba(110,231,183,.35)",fontSize:12,cursor:"pointer",textDecoration:"underline"}}>Use a different email</button>
       </div>}
-      {stage==="notfound"&&<div className="fu" style={{background:"#0a1a14",borderRadius:18,padding:"28px",border:"1px solid rgba(239,68,68,.2)",textAlign:"center",marginTop:-24}}>
+      {stage==="notfound"&&<div className="fu" style={{background:"#0d2018",borderRadius:18,padding:"28px",border:"1px solid rgba(239,68,68,.2)",textAlign:"center",marginTop:-24}}>
         <div style={{fontSize:42,marginBottom:12}}>🤔</div>
         <p style={{color:"#f87171",fontWeight:700,fontSize:15,margin:"0 0 8px"}}>No application found</p>
-        <p style={{color:"#6ee7b7",fontSize:13,margin:"0 0 18px",lineHeight:1.7}}>We couldn't find an application with that email. Double-check it or head to Apply to submit one.</p>
-        <button type="button" onClick={reset} className="btn" style={{background:"rgba(52,211,153,.08)",border:"1px solid rgba(52,211,153,.2)",borderRadius:10,padding:"8px 20px",color:"#6ee7b7",fontSize:13,fontWeight:600,cursor:"pointer"}}>Try again</button>
+        <p style={{color:"#7de8b8",fontSize:13,margin:"0 0 18px",lineHeight:1.7}}>We couldn't find an application with that email. Double-check it or head to Apply to submit one.</p>
+        <button type="button" onClick={reset} className="btn" style={{background:"rgba(52,211,153,.08)",border:"1px solid rgba(52,211,153,.2)",borderRadius:10,padding:"8px 20px",color:"#7de8b8",fontSize:13,fontWeight:600,cursor:"pointer"}}>Try again</button>
       </div>}
       {stage==="found"&&found&&(()=>{
         const info=SI[found.status]||SI.New;
@@ -573,11 +573,11 @@ function StatusPage({applicants}){
           <div style={{background:info.bg,borderRadius:20,padding:"22px 20px",border:`1px solid ${info.bd}`}}>
             <div style={{display:"flex",alignItems:"flex-start",gap:16}}>
               <div style={{fontSize:42,lineHeight:1,flexShrink:0}}>{info.icon}</div>
-              <div><div style={{color:info.color,fontSize:11,fontWeight:800,letterSpacing:".12em",textTransform:"uppercase",marginBottom:5}}>Current Status</div><h2 style={{fontFamily:"'Playfair Display',serif",fontSize:24,color:"#fff",fontWeight:700,margin:"0 0 8px"}}>{info.label}</h2><p style={{color:"rgba(255,255,255,.65)",fontSize:13,lineHeight:1.75,margin:0}}>{info.desc}</p></div>
+              <div><div style={{color:info.color,fontSize:11,fontWeight:800,letterSpacing:".12em",textTransform:"uppercase",marginBottom:5}}>Current Status</div><h2 style={{fontFamily:"'Poppins',sans-serif",fontSize:24,color:"#fff",fontWeight:700,margin:"0 0 8px"}}>{info.label}</h2><p style={{color:"rgba(255,255,255,.65)",fontSize:13,lineHeight:1.75,margin:0}}>{info.desc}</p></div>
             </div>
           </div>
-          {found.status!=="Rejected"&&<div style={{background:"#0a1a14",borderRadius:18,padding:"18px 20px",border:"1px solid rgba(52,211,153,.12)"}}>
-            <div style={{fontFamily:"'Caveat',cursive",fontSize:14,fontWeight:700,color:"#34d399",marginBottom:14}}>Application Progress</div>
+          {found.status!=="Rejected"&&<div style={{background:"#0d2018",borderRadius:18,padding:"18px 20px",border:"1px solid rgba(52,211,153,.18)"}}>
+            <div style={{fontFamily:"'Poppins',sans-serif",fontSize:14,fontWeight:700,color:"#2ecc8a",marginBottom:14}}>Application Progress</div>
             <div style={{display:"flex",alignItems:"center"}}>
               {steps.map((step,i)=>{const act=idx>=i;const cur=idx===i;const sg=stG(step);return(<div key={step} style={{display:"flex",alignItems:"center",flex:i<steps.length-1?1:"none"}}>
                 <div style={{display:"flex",flexDirection:"column",alignItems:"center",gap:5}}>
@@ -590,8 +590,8 @@ function StatusPage({applicants}){
               </div>);})}
             </div>
           </div>}
-          <div style={{background:"#0a1a14",borderRadius:18,padding:"18px 20px",border:"1px solid rgba(52,211,153,.12)"}}>
-            <div style={{fontFamily:"'Caveat',cursive",fontSize:14,fontWeight:700,color:"#34d399",marginBottom:14}}>👤 Your Details</div>
+          <div style={{background:"#0d2018",borderRadius:18,padding:"18px 20px",border:"1px solid rgba(52,211,153,.18)"}}>
+            <div style={{fontFamily:"'Poppins',sans-serif",fontSize:14,fontWeight:700,color:"#2ecc8a",marginBottom:14}}>👤 Your Details</div>
             <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10}} className="g2">
               {[{l:"Name",v:found.full_name},{l:"Email",v:found.email},{l:"Phone",v:found.phone},{l:"Position",v:found.position},{l:"Applied",v:new Date(found.created_at).toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"})},{l:"Experience",v:`${found.experience_years} yr${found.experience_years!==1?"s":""}`}].map(x=><div key={x.l} style={{background:"rgba(52,211,153,.04)",borderRadius:10,padding:"10px 13px",border:"1px solid rgba(52,211,153,.08)"}}>
                 <div style={{color:"rgba(110,231,183,.45)",fontSize:10,fontWeight:700,letterSpacing:".08em",textTransform:"uppercase",marginBottom:3}}>{x.l}</div>
@@ -599,7 +599,7 @@ function StatusPage({applicants}){
               </div>)}
             </div>
           </div>
-          <button type="button" onClick={reset} className="btn" style={{background:"transparent",border:"1px solid rgba(52,211,153,.12)",borderRadius:12,padding:"10px",color:"rgba(110,231,183,.45)",fontSize:13,fontWeight:600,cursor:"pointer",textAlign:"center",width:"100%"}}>← Search a different email</button>
+          <button type="button" onClick={reset} className="btn" style={{background:"transparent",border:"1px solid rgba(52,211,153,.18)",borderRadius:12,padding:"10px",color:"rgba(110,231,183,.45)",fontSize:13,fontWeight:600,cursor:"pointer",textAlign:"center",width:"100%"}}>← Search a different email</button>
         </div>);
       })()}
     </div>
@@ -613,35 +613,35 @@ function AboutPage(){
   useEffect(()=>{setTimeout(()=>setMounted(true),80);},[]);
   const vals=[{i:"⚖️",t:"Act Justly — Work with Purpose",d:"We pour intentionality into everything we do, seeking to honor God and people through excellent work."},{i:"💚",t:"Love Mercy — Welcome with Generosity",d:"We extend the heart of Christ through genuine hospitality — creating spaces of warmth and belonging."},{i:"🙏",t:"Walk Humbly — Lead with Grace",d:"We walk alongside others with humility and gratitude, trusting God to use our efforts to build community."}];
   const info=[{i:"💰",l:"Pay",v:"$11–13/hr Barista · Competitive for Shift Lead"},{i:"📅",l:"Hours",v:"10–36 hrs/week · Mon–Sat 6 AM–6 PM"},{i:"📍",l:"Location",v:"2907 McKinney St, STE 100, Melissa TX"},{i:"📞",l:"Contact",v:"(469) 518-1994 · melissa@hopecoffee.com"},{i:"🎂",l:"Requirement",v:"Must be 18 or older"},{i:"☕",l:"Culture",v:"Faith-driven, community-rooted, servant-hearted"}];
-  return(<div style={{minHeight:"100%",background:"#040d0a"}}>
-    <div style={{position:"relative",padding:"52px 24px 72px",overflow:"hidden",background:"linear-gradient(160deg,#022c22,#065f46 50%,#022c22)",backgroundSize:"400% 400%",animation:"bgFlow 14s ease infinite"}}>
+  return(<div style={{minHeight:"100%",background:"#060f0a"}}>
+    <div style={{position:"relative",padding:"52px 24px 72px",overflow:"hidden",background:"linear-gradient(145deg,#011a12,#023a28 40%,#0a5c3a 70%,#011a12)",backgroundSize:"400% 400%",animation:"bgFlow 14s ease infinite"}}>
       <div style={{position:"relative",zIndex:2,maxWidth:600,margin:"0 auto"}}>
         <div className={mounted?"fu":""} style={{display:"flex",alignItems:"center",gap:18,marginBottom:24}}>
           <div className="fl" style={{background:"rgba(255,255,255,.12)",borderRadius:20,padding:"12px 14px",border:"1px solid rgba(255,255,255,.18)"}}><Logo s={54}/></div>
-          <div><div style={{fontFamily:"'Caveat',cursive",color:"#6ee7b7",fontSize:16,fontWeight:700,marginBottom:2}}>About</div><div style={{fontFamily:"'Playfair Display',serif",fontSize:28,color:"#fff",fontWeight:700}}>Hope Coffee Melissa</div></div>
+          <div><div style={{fontFamily:"'Poppins',sans-serif",color:"#7de8b8",fontSize:16,fontWeight:700,marginBottom:2}}>About</div><div style={{fontFamily:"'Poppins',sans-serif",fontSize:28,color:"#fff",fontWeight:700}}>Hope Coffee Melissa</div></div>
         </div>
-        <h1 className={`ht ${mounted?"fu":""}`} style={{fontFamily:"'Playfair Display',serif",fontSize:44,color:"#fff",fontWeight:800,margin:"0 0 16px",lineHeight:1.08,animationDelay:"60ms"}}>Drink Coffee. Change Lives. ☕</h1>
+        <h1 className={`ht ${mounted?"fu":""}`} style={{fontFamily:"'Poppins',sans-serif",fontSize:40,color:"#fff",fontWeight:800,margin:"0 0 16px",lineHeight:1.1,letterSpacing:"-1px",animationDelay:"60ms"}}>Drink Coffee. Change Lives. ☕</h1>
         <p className={mounted?"fu":""} style={{color:"rgba(110,231,183,.8)",fontSize:15,lineHeight:1.85,maxWidth:480,fontWeight:300,animationDelay:"120ms"}}>Our mission is to bring value and purpose through every cup — serving with hospitality, excellence, and intentionality.</p>
       </div>
     </div>
     <div style={{maxWidth:620,margin:"0 auto",padding:"0 16px 80px"}}>
-      <div className={mounted?"si":""} style={{background:"#0a1a14",borderRadius:24,padding:"32px",marginTop:-32,boxShadow:"0 30px 80px rgba(0,0,0,.5)",border:"1px solid rgba(52,211,153,.12)"}}>
-        <div style={{fontFamily:"'Caveat',cursive",fontSize:17,fontWeight:700,color:"#34d399",marginBottom:14}}>📋 Quick Info</div>
+      <div className={mounted?"si":""} style={{background:"#0d2018",borderRadius:24,padding:"32px",marginTop:-32,boxShadow:"0 30px 80px rgba(0,0,0,.5)",border:"1px solid rgba(52,211,153,.18)"}}>
+        <div style={{fontFamily:"'Poppins',sans-serif",fontSize:17,fontWeight:700,color:"#2ecc8a",marginBottom:14}}>📋 Quick Info</div>
         <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10,marginBottom:26}} className="g2">
           {info.map(x=><div key={x.l} className="ch" style={{background:"rgba(52,211,153,.04)",borderRadius:14,padding:"14px 16px",border:"1px solid rgba(52,211,153,.08)"}}><div style={{fontSize:20,marginBottom:6}}>{x.i}</div><div style={{color:"rgba(110,231,183,.45)",fontSize:10,fontWeight:700,letterSpacing:".08em",textTransform:"uppercase",marginBottom:4}}>{x.l}</div><div style={{color:"#e2fdf5",fontSize:13,fontWeight:600,lineHeight:1.5}}>{x.v}</div></div>)}
         </div>
         <div style={{background:"linear-gradient(135deg,rgba(6,95,70,.4),rgba(2,44,34,.6))",borderRadius:16,padding:"20px 22px",marginBottom:24,border:"1px solid rgba(52,211,153,.15)"}}>
-          <div style={{fontFamily:"'Caveat',cursive",fontSize:17,fontWeight:700,color:"#34d399",marginBottom:10}}>Our Mission</div>
+          <div style={{fontFamily:"'Poppins',sans-serif",fontSize:17,fontWeight:700,color:"#2ecc8a",marginBottom:10}}>Our Mission</div>
           <p style={{color:"rgba(255,255,255,.82)",fontSize:14,lineHeight:1.85,margin:0}}>The culture of Hope Coffee is one of serving. We exist to serve great coffee, our community, our customers, coffee farmers, the church, one another, those in need, and ultimately, Jesus Christ.</p>
         </div>
-        <div style={{fontFamily:"'Caveat',cursive",fontSize:17,fontWeight:700,color:"#34d399",marginBottom:14}}>🌿 Team Values</div>
+        <div style={{fontFamily:"'Poppins',sans-serif",fontSize:17,fontWeight:700,color:"#2ecc8a",marginBottom:14}}>🌿 Team Values</div>
         <div style={{display:"flex",flexDirection:"column",gap:12,marginBottom:26}}>
-          {vals.map(v=><div key={v.t} className="ch" style={{background:"rgba(52,211,153,.03)",borderRadius:14,padding:"16px 18px",border:"1px solid rgba(52,211,153,.08)"}}><div style={{display:"flex",alignItems:"center",gap:10,marginBottom:6}}><span style={{fontSize:20}}>{v.i}</span><div style={{fontFamily:"'Playfair Display',serif",fontSize:16,color:"#e2fdf5",fontWeight:700}}>{v.t}</div></div><p style={{color:"rgba(110,231,183,.7)",fontSize:13,lineHeight:1.75,margin:0}}>{v.d}</p></div>)}
+          {vals.map(v=><div key={v.t} className="ch" style={{background:"rgba(52,211,153,.03)",borderRadius:14,padding:"16px 18px",border:"1px solid rgba(52,211,153,.08)"}}><div style={{display:"flex",alignItems:"center",gap:10,marginBottom:6}}><span style={{fontSize:20}}>{v.i}</span><div style={{fontFamily:"'Poppins',sans-serif",fontSize:16,color:"#e2fdf5",fontWeight:700}}>{v.t}</div></div><p style={{color:"rgba(110,231,183,.7)",fontSize:13,lineHeight:1.75,margin:0}}>{v.d}</p></div>)}
         </div>
         <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:12,marginBottom:26}} className="g2">
-          {[{r:"Barista",p:"$11–13/hr",h:"10–36 hrs/wk",d:"Craft drinks, connect with guests, share the Hope Coffee story."},{r:"Shift Lead",p:"Competitive",h:"Full or Part Time",d:"Run shifts, support the team, uphold our values and standards."}].map(x=><div key={x.r} className="ch" style={{background:"linear-gradient(135deg,rgba(6,95,70,.3),rgba(2,44,34,.5))",borderRadius:14,padding:"16px",border:"1px solid rgba(52,211,153,.15)"}}><div style={{fontFamily:"'Playfair Display',serif",fontSize:18,color:"#fff",fontWeight:700,marginBottom:5}}>{x.r}</div><div style={{color:"#34d399",fontSize:12,fontWeight:600,marginBottom:6}}>{x.p} · {x.h}</div><p style={{color:"rgba(255,255,255,.6)",fontSize:12,lineHeight:1.65,margin:0}}>{x.d}</p></div>)}
+          {[{r:"Barista",p:"$11–13/hr",h:"10–36 hrs/wk",d:"Craft drinks, connect with guests, share the Hope Coffee story."},{r:"Shift Lead",p:"Competitive",h:"Full or Part Time",d:"Run shifts, support the team, uphold our values and standards."}].map(x=><div key={x.r} className="ch" style={{background:"linear-gradient(135deg,rgba(6,95,70,.3),rgba(2,44,34,.5))",borderRadius:14,padding:"16px",border:"1px solid rgba(52,211,153,.15)"}}><div style={{fontFamily:"'Poppins',sans-serif",fontSize:17,color:"#fff",fontWeight:700,marginBottom:5,letterSpacing:"-.2px"}}>{x.r}</div><div style={{color:"#2ecc8a",fontSize:12,fontWeight:600,marginBottom:6}}>{x.p} · {x.h}</div><p style={{color:"rgba(255,255,255,.6)",fontSize:12,lineHeight:1.65,margin:0}}>{x.d}</p></div>)}
         </div>
-        <div style={{textAlign:"center",background:"rgba(52,211,153,.05)",borderRadius:16,padding:"22px",border:"1px solid rgba(52,211,153,.12)"}}><div style={{fontSize:36,marginBottom:8}}>🙌</div><h3 style={{fontFamily:"'Playfair Display',serif",fontSize:22,color:"#fff",fontWeight:700,margin:"0 0 8px"}}>Ready to join the family?</h3><p style={{color:"rgba(110,231,183,.7)",fontSize:13,lineHeight:1.7,margin:"0 0 12px"}}>If you're passionate about making a difference with every cup — we'd love to hear from you.</p><div style={{color:"rgba(52,211,153,.55)",fontSize:12}}>(469) 518-1994 · melissa@hopecoffee.com</div></div>
+        <div style={{textAlign:"center",background:"rgba(52,211,153,.05)",borderRadius:16,padding:"22px",border:"1px solid rgba(52,211,153,.18)"}}><div style={{fontSize:36,marginBottom:8}}>🙌</div><h3 style={{fontFamily:"'Poppins',sans-serif",fontSize:22,color:"#fff",fontWeight:700,margin:"0 0 8px"}}>Ready to join the family?</h3><p style={{color:"rgba(110,231,183,.7)",fontSize:13,lineHeight:1.7,margin:"0 0 12px"}}>If you're passionate about making a difference with every cup — we'd love to hear from you.</p><div style={{color:"rgba(52,211,153,.55)",fontSize:12}}>(469) 518-1994 · melissa@hopecoffee.com</div></div>
       </div>
     </div>
   </div>);
@@ -680,11 +680,11 @@ function ManagerAuthGate({onAuth}){
 
   const BG="linear-gradient(165deg,#065f46,#022c22)";
   const disabled=locked||!email.trim()||!pass.trim();
-  return(<div style={{display:"flex",alignItems:"center",justifyContent:"center",height:"100%",background:"#040d0a"}}>
+  return(<div style={{display:"flex",alignItems:"center",justifyContent:"center",height:"100%",background:"#060f0a"}}>
     <div style={{position:"absolute",inset:0,background:"radial-gradient(ellipse at center,rgba(6,95,70,.18),transparent 70%)",pointerEvents:"none"}}/>
-    <div className="si" style={{position:"relative",zIndex:1,background:"#0a1a14",borderRadius:24,padding:"44px 38px",width:"min(400px,calc(100vw - 32px))",boxShadow:"0 30px 80px rgba(0,0,0,.6)",textAlign:"center",border:"1px solid rgba(52,211,153,.12)"}}>
+    <div className="si" style={{position:"relative",zIndex:1,background:"#0d2018",borderRadius:24,padding:"44px 38px",width:"min(400px,calc(100vw - 32px))",boxShadow:"0 30px 80px rgba(0,0,0,.6)",textAlign:"center",border:"1px solid rgba(52,211,153,.18)"}}>
       <div className="fl" style={{width:70,height:70,borderRadius:"50%",background:BG,display:"flex",alignItems:"center",justifyContent:"center",margin:"0 auto 22px",boxShadow:"0 8px 32px rgba(6,95,70,.4)"}}><Logo s={40}/></div>
-      <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:26,color:"#fff",fontWeight:700,margin:"0 0 8px"}}>Manager Access</h2>
+      <h2 style={{fontFamily:"'Poppins',sans-serif",fontSize:24,color:"#fff",fontWeight:700,margin:"0 0 8px",letterSpacing:"-.4px"}}>Manager Access</h2>
       <p style={{color:"rgba(110,231,183,.5)",fontSize:13,margin:"0 0 24px",lineHeight:1.65}}>Enter your authorized email and password to access the hiring dashboard.</p>
       <div style={{display:"flex",flexDirection:"column",gap:12,marginBottom:16}}>
         <input type="email" value={email} onChange={e=>setEmail(e.target.value.slice(0,200))} onKeyDown={e=>{if(e.key==="Enter")tryLogin();}} placeholder="manager@hopecoffee.com" disabled={locked} style={{width:"100%",background:"rgba(255,255,255,.03)",border:`1.5px solid ${err&&!locked?"rgba(239,68,68,.4)":"rgba(52,211,153,.15)"}`,borderRadius:12,padding:"13px 16px",color:"#e2fdf5",fontSize:14,outline:"none",textAlign:"center"}}/>
@@ -748,12 +748,12 @@ function ManagerDashboard({applicants,onStatusChange,onDelete}){
 
   const stats=[{l:"Total",v:vis.length,g:BG},{l:"New",v:cnts.New||0,g:"linear-gradient(165deg,#1d4ed8,#1e3a8a)"},{l:"Interview",v:cnts.Interview||0,g:"linear-gradient(165deg,#b45309,#78350f)"},{l:"Hired",v:cnts.Hired||0,g:"linear-gradient(165deg,#047857,#022c22)"}];
 
-  return(<div className="dl" style={{display:"flex",height:"100%",background:"#040d0a",overflow:"hidden"}}>
+  return(<div className="dl" style={{display:"flex",height:"100%",background:"#060f0a",overflow:"hidden"}}>
     {/* PDF Modal */}
     {modal&&entry&&entry.resume_base64&&(<div onClick={()=>setModal(false)} style={{position:"fixed",inset:0,zIndex:9000,background:"rgba(0,0,0,.88)",display:"flex",alignItems:"center",justifyContent:"center",padding:24,animation:"ovIn .3s ease both"}}>
-      <div onClick={e=>e.stopPropagation()} style={{background:"#0a1a14",borderRadius:20,width:"min(800px,100%)",maxHeight:"90vh",overflow:"hidden",border:"1px solid rgba(52,211,153,.2)",display:"flex",flexDirection:"column",animation:"scaleIn .3s cubic-bezier(.34,1.56,.64,1) both"}}>
+      <div onClick={e=>e.stopPropagation()} style={{background:"#0d2018",borderRadius:20,width:"min(800px,100%)",maxHeight:"90vh",overflow:"hidden",border:"1px solid rgba(52,211,153,.2)",display:"flex",flexDirection:"column",animation:"scaleIn .3s cubic-bezier(.34,1.56,.64,1) both"}}>
         <div style={{padding:"16px 20px",borderBottom:"1px solid rgba(52,211,153,.1)",display:"flex",alignItems:"center",justifyContent:"space-between"}}>
-          <div><div style={{fontFamily:"'Playfair Display',serif",fontSize:17,color:"#fff",fontWeight:700}}>Resume — {entry.full_name}</div><div style={{color:"rgba(110,231,183,.4)",fontSize:12,marginTop:2}}>{entry.resume_file_name}</div></div>
+          <div><div style={{fontFamily:"'Poppins',sans-serif",fontSize:16,color:"#fff",fontWeight:700,letterSpacing:"-.2px"}}>Resume — {entry.full_name}</div><div style={{color:"rgba(110,231,183,.4)",fontSize:12,marginTop:2}}>{entry.resume_file_name}</div></div>
           <div style={{display:"flex",gap:10}}>
             <button type="button" onClick={()=>downloadResume(entry)} className="btn" style={{padding:"8px 16px",borderRadius:10,background:BG,color:"#fff",fontSize:12,fontWeight:700,border:"1px solid rgba(52,211,153,.2)"}}>⬇ Download</button>
             <button type="button" onClick={()=>setModal(false)} className="btn" style={{padding:"8px 14px",borderRadius:10,background:"rgba(255,255,255,.04)",color:"rgba(255,255,255,.6)",fontSize:12,border:"1px solid rgba(255,255,255,.08)"}}>✕ Close</button>
@@ -762,20 +762,20 @@ function ManagerDashboard({applicants,onStatusChange,onDelete}){
         <div style={{flex:1,overflow:"auto",padding:20}}>
           {entry.resume_media_type==="application/pdf"
             ?<iframe src={`data:application/pdf;base64,${entry.resume_base64}`} style={{width:"100%",height:"70vh",border:"none",borderRadius:8}} title="Resume"/>
-            :<div style={{background:"rgba(255,255,255,.02)",borderRadius:12,padding:20,border:"1px solid rgba(52,211,153,.1)"}}><p style={{color:"#6ee7b7",fontSize:13,marginBottom:14}}>This file type can't be previewed inline. Download to view.</p><button type="button" onClick={()=>downloadResume(entry)} className="btn" style={{padding:"10px 20px",borderRadius:10,background:BG,color:"#fff",fontSize:13,fontWeight:700}}>⬇ Download Resume</button></div>}
+            :<div style={{background:"rgba(255,255,255,.02)",borderRadius:12,padding:20,border:"1px solid rgba(52,211,153,.1)"}}><p style={{color:"#7de8b8",fontSize:13,marginBottom:14}}>This file type can't be previewed inline. Download to view.</p><button type="button" onClick={()=>downloadResume(entry)} className="btn" style={{padding:"10px 20px",borderRadius:10,background:BG,color:"#fff",fontSize:13,fontWeight:700}}>⬇ Download Resume</button></div>}
         </div>
       </div>
     </div>)}
 
     {/* Sidebar */}
-    <div className="ds" style={{width:300,flexShrink:0,background:"#060f0b",borderRight:"1px solid rgba(52,211,153,.07)",display:"flex",flexDirection:"column",overflow:"hidden"}}>
+    <div className="ds" style={{width:300,flexShrink:0,background:"#08120d",borderRight:"1px solid rgba(52,211,153,.07)",display:"flex",flexDirection:"column",overflow:"hidden"}}>
       <div style={{background:"linear-gradient(165deg,#022c22,#065f46,#047857)",padding:"18px 16px",flexShrink:0}}>
         <div style={{display:"flex",alignItems:"center",gap:11,marginBottom:12}}>
           <div className="fl" style={{background:"rgba(255,255,255,.12)",borderRadius:12,padding:"7px 9px",border:"1px solid rgba(255,255,255,.18)"}}><Logo s={28}/></div>
-          <div><div style={{fontFamily:"'Playfair Display',serif",fontSize:16,color:"#fff",fontWeight:700}}>Hire4Hope</div><div style={{fontFamily:"'Caveat',cursive",color:"#6ee7b7",fontSize:12,marginTop:1}}>Manager Dashboard</div></div>
+          <div><div style={{fontFamily:"'Poppins',sans-serif",fontSize:16,color:"#fff",fontWeight:700}}>Hire4Hope</div><div style={{fontFamily:"'Poppins',sans-serif",color:"#7de8b8",fontSize:12,marginTop:1}}>Manager Dashboard</div></div>
         </div>
         <div style={{background:"rgba(0,0,0,.2)",borderRadius:10,padding:"9px 13px",border:"1px solid rgba(255,255,255,.08)"}}>
-          <div style={{fontFamily:"'Caveat',cursive",color:"#a7f3d0",fontSize:14,fontWeight:700}}>{greet}! ☕</div>
+          <div style={{fontFamily:"'Poppins',sans-serif",color:"#a7f3d0",fontSize:13,fontWeight:600,letterSpacing:"-.1px"}}>{greet}! ☕</div>
           <div style={{color:"rgba(255,255,255,.45)",fontSize:11,marginTop:1}}>{vis.length} applicant{vis.length!==1?"s":""}{cnts.New?` · ${cnts.New} new`:""}</div>
         </div>
       </div>
@@ -822,20 +822,20 @@ function ManagerDashboard({applicants,onStatusChange,onDelete}){
           <div className="fl" style={{color:"rgba(52,211,153,.12)"}}><svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/><path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg></div>
           <p style={{color:"rgba(110,231,183,.2)",fontSize:14,textAlign:"center"}}>{vis.length===0?"No applications yet.":"Select an applicant to review their details."}</p>
         </div>
-        :<div key={entry.id} style={{background:"#0a1a14",borderRadius:22,padding:"22px 24px",boxShadow:"0 10px 48px rgba(0,0,0,.35)",animation:"fadeUp .38s ease both",border:"1px solid rgba(52,211,153,.1)"}}>
+        :<div key={entry.id} style={{background:"#0d2018",borderRadius:22,padding:"22px 24px",boxShadow:"0 10px 48px rgba(0,0,0,.35)",animation:"fadeUp .38s ease both",border:"1px solid rgba(52,211,153,.1)"}}>
           {/* Header */}
           <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",gap:16,marginBottom:16}}>
             <div style={{display:"flex",gap:14,alignItems:"flex-start",flex:1}}>
-              <div style={{width:52,height:52,borderRadius:"50%",background:BG,display:"flex",alignItems:"center",justifyContent:"center",color:"#fff",fontSize:20,fontWeight:800,flexShrink:0,fontFamily:"'Playfair Display',serif"}}>{entry.full_name.charAt(0)}</div>
+              <div style={{width:52,height:52,borderRadius:"50%",background:BG,display:"flex",alignItems:"center",justifyContent:"center",color:"#fff",fontSize:20,fontWeight:800,flexShrink:0,fontFamily:"'Poppins',sans-serif"}}>{entry.full_name.charAt(0)}</div>
               <div>
-                <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:24,color:"#fff",fontWeight:700,margin:"0 0 6px"}}>{entry.full_name}</h2>
+                <h2 style={{fontFamily:"'Poppins',sans-serif",fontSize:24,color:"#fff",fontWeight:700,margin:"0 0 6px"}}>{entry.full_name}</h2>
                 <div style={{display:"flex",alignItems:"center",gap:8,flexWrap:"wrap",marginBottom:4}}>
                   {(()=>{const sg=stG(entry.status);return<span style={{background:sg.g,color:"#fff",fontSize:11,fontWeight:700,padding:"3px 13px",borderRadius:20}}>{entry.status}</span>;})()}
-                  <span style={{color:"#34d399",fontSize:12,fontWeight:600,background:"rgba(52,211,153,.08)",padding:"3px 12px",borderRadius:18,border:"1px solid rgba(52,211,153,.15)"}}>{entry.position}</span>
+                  <span style={{color:"#2ecc8a",fontSize:12,fontWeight:600,background:"rgba(52,211,153,.08)",padding:"3px 12px",borderRadius:18,border:"1px solid rgba(52,211,153,.15)"}}>{entry.position}</span>
                   {entry.ai_scored&&<span style={{color:"#60a5fa",fontSize:11,fontWeight:600,background:"rgba(96,165,250,.08)",padding:"3px 10px",borderRadius:18,border:"1px solid rgba(96,165,250,.15)"}}>🤖 AI Scored</span>}
                 </div>
                 <p style={{color:"rgba(110,231,183,.45)",fontSize:12,margin:"0 0 2px"}}>{entry.email} · {entry.phone}</p>
-                <p style={{fontFamily:"'Caveat',cursive",color:"rgba(110,231,183,.3)",fontSize:12}}>Applied {new Date(entry.created_at).toLocaleDateString("en-US",{month:"long",day:"numeric",year:"numeric"})}</p>
+                <p style={{fontFamily:"'Poppins',sans-serif",color:"rgba(110,231,183,.3)",fontSize:12}}>Applied {new Date(entry.created_at).toLocaleDateString("en-US",{month:"long",day:"numeric",year:"numeric"})}</p>
               </div>
             </div>
             {/* Score circle */}
@@ -850,26 +850,26 @@ function ManagerDashboard({applicants,onStatusChange,onDelete}){
                   <span style={{color:"rgba(255,255,255,.3)",fontSize:9,fontWeight:700}}>/10</span>
                 </div>
               </div>
-              <p style={{fontFamily:"'Caveat',cursive",color:"rgba(110,231,183,.45)",fontSize:11,margin:"4px 0 0",fontWeight:700}}>{sLbl(entry.risk_score)}</p>
+              <p style={{fontFamily:"'Poppins',sans-serif",color:"rgba(110,231,183,.45)",fontSize:11,margin:"4px 0 0",fontWeight:700}}>{sLbl(entry.risk_score)}</p>
             </div>}
           </div>
 
           {/* AI summary */}
           {entry.ai_summary&&<div style={{background:"rgba(96,165,250,.06)",borderRadius:12,padding:"13px 16px",marginBottom:12,border:"1px solid rgba(96,165,250,.15)"}}>
-            <div style={{fontFamily:"'Caveat',cursive",fontSize:13,fontWeight:700,color:"#60a5fa",marginBottom:6}}>🤖 AI Assessment</div>
+            <div style={{fontFamily:"'Poppins',sans-serif",fontSize:13,fontWeight:700,color:"#60a5fa",marginBottom:6}}>🤖 AI Assessment</div>
             <p style={{color:"rgba(96,165,250,.8)",fontSize:13,lineHeight:1.7,margin:0}}>{entry.ai_summary}</p>
           </div>}
 
           {/* Score breakdown */}
           {entry.score_breakdown?.length>0&&<div style={{background:"rgba(52,211,153,.04)",borderRadius:14,padding:"14px 18px",marginBottom:12,border:"1px solid rgba(52,211,153,.08)"}}>
-            <div style={{fontFamily:"'Caveat',cursive",fontSize:13,fontWeight:700,color:"#34d399",marginBottom:12}}>📊 Score Breakdown</div>
+            <div style={{fontFamily:"'Poppins',sans-serif",fontSize:13,fontWeight:700,color:"#2ecc8a",marginBottom:12}}>📊 Score Breakdown</div>
             <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8}} className="g2">
               {entry.score_breakdown.map(b=><div key={b.label} style={{background:"rgba(255,255,255,.02)",borderRadius:10,padding:"9px 12px",border:"1px solid rgba(52,211,153,.06)"}}>
                 <div style={{display:"flex",justifyContent:"space-between",marginBottom:4}}>
                   <span style={{color:"#e2fdf5",fontSize:11,fontWeight:700}}>{b.label}</span>
-                  <span style={{color:"#34d399",fontSize:11,fontWeight:700}}>{b.raw}/10 <span style={{color:"rgba(110,231,183,.3)",fontWeight:400}}>({b.weight}%)</span></span>
+                  <span style={{color:"#2ecc8a",fontSize:11,fontWeight:700}}>{b.raw}/10 <span style={{color:"rgba(110,231,183,.3)",fontWeight:400}}>({b.weight}%)</span></span>
                 </div>
-                <div style={{height:4,borderRadius:2,background:"rgba(255,255,255,.05)",overflow:"hidden"}}><div style={{height:"100%",borderRadius:2,background:`linear-gradient(90deg,${b.raw>=7?"#10b981,#34d399":b.raw>=5?"#f59e0b,#fbbf24":"#ef4444,#fca5a5"})`,width:`${b.raw*10}%`,transition:"width 1s ease"}}/></div>
+                <div style={{height:4,borderRadius:2,background:"rgba(255,255,255,.05)",overflow:"hidden"}}><div style={{height:"100%",borderRadius:2,background:`linear-gradient(90deg,${b.raw>=7?"#059669,#2ecc8a":b.raw>=5?"#d97706,#fbbf24":"#dc2626,#f87171"})`,width:`${b.raw*10}%`,transition:"width 1s ease"}}/></div>
                 {b.reason&&<p style={{color:"rgba(110,231,183,.3)",fontSize:10,margin:"3px 0 0",lineHeight:1.45}}>{b.reason}</p>}
               </div>)}
             </div>
@@ -877,22 +877,22 @@ function ManagerDashboard({applicants,onStatusChange,onDelete}){
 
           {/* Resume */}
           {entry.resume_base64
-            ?<div style={{background:"rgba(52,211,153,.04)",borderRadius:12,padding:"13px 16px",marginBottom:12,border:"1px solid rgba(52,211,153,.12)"}}>
-              <div style={{fontFamily:"'Caveat',cursive",fontSize:13,fontWeight:700,color:"#34d399",marginBottom:10}}>📎 Resume File Uploaded</div>
+            ?<div style={{background:"rgba(52,211,153,.04)",borderRadius:12,padding:"13px 16px",marginBottom:12,border:"1px solid rgba(52,211,153,.18)"}}>
+              <div style={{fontFamily:"'Poppins',sans-serif",fontSize:13,fontWeight:700,color:"#2ecc8a",marginBottom:10}}>📎 Resume File Uploaded</div>
               <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",gap:10,flexWrap:"wrap"}}>
                 <div style={{display:"flex",alignItems:"center",gap:10}}>
                   <div style={{width:36,height:36,borderRadius:"50%",background:BG,display:"flex",alignItems:"center",justifyContent:"center"}}><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
                   <div><p style={{color:"#e2fdf5",fontSize:13,fontWeight:700,margin:0}}>{entry.resume_file_name||"Resume"}</p><p style={{color:"rgba(110,231,183,.35)",fontSize:11,margin:"2px 0 0"}}>AI read this file for scoring</p></div>
                 </div>
                 <div style={{display:"flex",gap:8}}>
-                  {entry.resume_media_type==="application/pdf"&&<button type="button" onClick={()=>setModal(true)} className="btn" style={{background:"rgba(52,211,153,.08)",border:"1px solid rgba(52,211,153,.2)",borderRadius:10,padding:"7px 14px",color:"#6ee7b7",fontSize:12,fontWeight:700}}>👁 View</button>}
+                  {entry.resume_media_type==="application/pdf"&&<button type="button" onClick={()=>setModal(true)} className="btn" style={{background:"rgba(52,211,153,.08)",border:"1px solid rgba(52,211,153,.2)",borderRadius:10,padding:"7px 14px",color:"#7de8b8",fontSize:12,fontWeight:700}}>👁 View</button>}
                   <button type="button" onClick={()=>downloadResume(entry)} className="btn" style={{background:BG,border:"1px solid rgba(52,211,153,.25)",borderRadius:10,padding:"7px 14px",color:"#fff",fontSize:12,fontWeight:700}}>⬇ Download</button>
                 </div>
               </div>
             </div>
             :entry.resume_text
               ?<div style={{background:"rgba(52,211,153,.03)",borderRadius:12,padding:"13px 16px",marginBottom:12,border:"1px solid rgba(52,211,153,.08)"}}>
-                <div style={{fontFamily:"'Caveat',cursive",fontSize:13,fontWeight:700,color:"#34d399",marginBottom:8}}>📋 Resume Summary</div>
+                <div style={{fontFamily:"'Poppins',sans-serif",fontSize:13,fontWeight:700,color:"#2ecc8a",marginBottom:8}}>📋 Resume Summary</div>
                 <p style={{color:"rgba(255,255,255,.65)",fontSize:13,lineHeight:1.75,margin:0,whiteSpace:"pre-line"}}>{entry.resume_text}</p>
               </div>
               :null}
@@ -905,14 +905,14 @@ function ManagerDashboard({applicants,onStatusChange,onDelete}){
             </div>)}
           </div>
           {[{l:"Background Notes",v:entry.background_notes,e:"📝"},{l:"Online Presence",v:entry.digital_footprint,e:"🔗"}].filter(x=>x.v).map(x=><div key={x.l} style={{background:"rgba(255,255,255,.02)",borderRadius:12,padding:"13px 16px",marginBottom:10,border:"1px solid rgba(255,255,255,.04)"}}>
-            <div style={{fontFamily:"'Caveat',cursive",fontSize:13,fontWeight:700,color:"#34d399",marginBottom:6}}>{x.e} {x.l}</div>
+            <div style={{fontFamily:"'Poppins',sans-serif",fontSize:13,fontWeight:700,color:"#2ecc8a",marginBottom:6}}>{x.e} {x.l}</div>
             <p style={{color:"rgba(255,255,255,.6)",fontSize:13,lineHeight:1.75,margin:0,whiteSpace:"pre-line"}}>{x.v}</p>
           </div>)}
 
           {/* Status update */}
           <div style={{background:"rgba(52,211,153,.03)",borderRadius:16,padding:"16px 20px",marginTop:4,border:"1px solid rgba(52,211,153,.08)"}}>
             <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:12}}>
-              <div style={{fontFamily:"'Caveat',cursive",fontSize:14,fontWeight:700,color:"#34d399"}}>Update Status</div>
+              <div style={{fontFamily:"'Poppins',sans-serif",fontSize:14,fontWeight:700,color:"#2ecc8a"}}>Update Status</div>
               {statusMsg&&<div style={{fontSize:12,color:"#10b981",fontWeight:600,animation:"fadeUp .3s ease both"}}>{statusMsg}</div>}
             </div>
             <div style={{background:"rgba(96,165,250,.05)",borderRadius:10,padding:"9px 13px",marginBottom:12,border:"1px solid rgba(96,165,250,.12)"}}>
@@ -963,7 +963,7 @@ export default function App(){
   const changeSt=useCallback(async(id,ns)=>{await updateDoc(doc(db,"applicants",id),{status:ns});},[]);
   const delApp=useCallback(async id=>{await updateDoc(doc(db,"applicants",id),{deleted_by_manager:true});},[]);
 
-  if(!loaded)return(<div style={{height:"100vh",display:"flex",alignItems:"center",justifyContent:"center",background:"#040d0a"}}><style>{CSS}</style><div style={{textAlign:"center",display:"flex",flexDirection:"column",alignItems:"center",gap:16}}><div className="fl"><Logo s={50}/></div><p style={{fontFamily:"'Playfair Display',serif",fontSize:22,color:"#6ee7b7"}}>Loading Hire4Hope…</p><div style={{width:40,height:3,borderRadius:2,background:"rgba(52,211,153,.15)",overflow:"hidden"}}><div style={{height:"100%",background:"linear-gradient(90deg,transparent,#34d399,transparent)",backgroundSize:"200% 100%",animation:"shimmer 1.5s linear infinite"}}/></div></div></div>);
+  if(!loaded)return(<div style={{height:"100vh",display:"flex",alignItems:"center",justifyContent:"center",background:"#060f0a"}}><style>{CSS}</style><div style={{textAlign:"center",display:"flex",flexDirection:"column",alignItems:"center",gap:16}}><div className="fl"><Logo s={50}/></div><p style={{fontFamily:"'Poppins',sans-serif",fontSize:22,color:"#7de8b8"}}>Loading Hire4Hope…</p><div style={{width:40,height:3,borderRadius:2,background:"rgba(52,211,153,.15)",overflow:"hidden"}}><div style={{height:"100%",background:"linear-gradient(90deg,transparent,#34d399,transparent)",backgroundSize:"200% 100%",animation:"shimmer 1.5s linear infinite"}}/></div></div></div>);
 
   const navItems=[
     {id:"apply",l:"Apply",ic:<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.3" strokeLinecap="round"><rect x="9" y="2" width="6" height="4" rx="1"/><path d="M9 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2h-2"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg>},
@@ -973,10 +973,10 @@ export default function App(){
 
   return(<div style={{height:"100vh",display:"flex",flexDirection:"column"}}>
     <style>{CSS}</style>
-    <div style={{flexShrink:0,background:"#060f0b",borderBottom:"1px solid rgba(52,211,153,.07)",padding:"0 20px",display:"flex",alignItems:"center",height:54,gap:4,boxShadow:"0 4px 24px rgba(0,0,0,.3)"}}>
+    <div style={{flexShrink:0,background:"#08120d",borderBottom:"1px solid rgba(52,211,153,.07)",padding:"0 20px",display:"flex",alignItems:"center",height:54,gap:4,boxShadow:"0 4px 24px rgba(0,0,0,.3)"}}>
       <button type="button" onClick={()=>setPage("apply")} className="btn" style={{display:"flex",alignItems:"center",gap:9,marginRight:14,background:"none",border:"none",padding:"4px 8px",borderRadius:10,cursor:"pointer"}}>
         <div className="fl"><Logo s={28}/></div>
-        <div><div style={{fontFamily:"'Playfair Display',serif",fontSize:15,fontWeight:700,lineHeight:1,background:"linear-gradient(135deg,#34d399,#6ee7b7)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>Hire4Hope</div><div style={{fontFamily:"'Caveat',cursive",color:"rgba(52,211,153,.4)",fontSize:10,lineHeight:1,marginTop:1}}>by Hope Coffee Melissa</div></div>
+        <div><div style={{fontFamily:"'Poppins',sans-serif",fontSize:15,fontWeight:700,lineHeight:1,background:"linear-gradient(135deg,#34d399,#6ee7b7)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>Hire4Hope</div><div style={{fontFamily:"'Poppins',sans-serif",color:"rgba(52,211,153,.4)",fontSize:10,lineHeight:1,marginTop:1}}>by Hope Coffee Melissa</div></div>
       </button>
       <div style={{width:1,height:20,background:"rgba(52,211,153,.1)",marginRight:8}}/>
       {navItems.map(p=><button key={p.id} type="button" onClick={()=>setPage(p.id)} className="btn" style={{display:"flex",alignItems:"center",gap:6,padding:"6px 14px",borderRadius:10,border:"none",background:page===p.id?"rgba(52,211,153,.08)":"transparent",color:page===p.id?"#34d399":"rgba(52,211,153,.38)",fontSize:13,fontWeight:page===p.id?700:500,cursor:"pointer",borderBottom:`2px solid ${page===p.id?"#34d399":"transparent"}`}}>{p.ic}<span className="nl">{p.l}</span></button>)}
