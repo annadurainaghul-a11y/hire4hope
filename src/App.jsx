@@ -434,10 +434,31 @@ function ApplyPage({onSubmit}){
             </div>
             <FD label="Role & Experience"/>
             <div style={{display:"flex",flexDirection:"column",gap:14}}>
-              <div className="g2" style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:12}}>
-                <div><FL text="Position *"/><select value={f.pos} onChange={e=>up("pos",e.target.value)} style={{...IS("pos"),cursor:"pointer"}} onFocus={()=>setFoc("pos")} onBlur={()=>setFoc(null)}><option value="">Select…</option><option value="Barista">Barista</option><option value="Shift Lead">Shift Lead</option></select>{EL("pos")}</div>
-                <div><FL text="Years Exp."/><input type="number" min="0" max="60" value={f.yr} onChange={e=>up("yr",e.target.value)} placeholder="0" style={IS("yr")} onFocus={()=>setFoc("yr")} onBlur={()=>setFoc(null)}/></div>
+              {/* Position cards — replaces native <select> which shows invisible text on Windows */}
+              <div>
+                <FL text="Position *"/>
+                <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10}} className="g2">
+                  {[
+                    {v:"Barista",icon:"☕",pay:"$11–$13/hr",hrs:"10–36 hrs/wk",desc:"Craft drinks, serve guests with warmth, and be the face of Hope Coffee. No experience needed — we train you!"},
+                    {v:"Shift Lead",icon:"⭐",pay:"Competitive",hrs:"Full or Part Time",desc:"Run shifts, guide the team, and uphold our values on the floor. Ideal for someone with service experience."},
+                  ].map(opt=>(
+                    <div key={opt.v} onClick={()=>up("pos",opt.v)} style={{borderRadius:14,padding:"14px 16px",cursor:"pointer",border:`2px solid ${f.pos===opt.v?"rgba(52,211,153,.6)":"rgba(255,255,255,.08)"}`,background:f.pos===opt.v?"rgba(52,211,153,.1)":"rgba(255,255,255,.02)",transition:"all .18s",position:"relative"}}>
+                      {f.pos===opt.v&&<div style={{position:"absolute",top:10,right:12,width:18,height:18,borderRadius:"50%",background:"linear-gradient(135deg,#34d399,#059669)",display:"flex",alignItems:"center",justifyContent:"center"}}><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round"><polyline points="20 6 9 17 4 12"/></svg></div>}
+                      <div style={{display:"flex",alignItems:"center",gap:7,marginBottom:6}}>
+                        <span style={{fontSize:18}}>{opt.icon}</span>
+                        <span style={{color:"#e2fdf5",fontSize:14,fontWeight:700}}>{opt.v}</span>
+                      </div>
+                      <div style={{display:"flex",gap:6,flexWrap:"wrap",marginBottom:7}}>
+                        <span style={{background:"rgba(52,211,153,.12)",color:"#6ee7b7",fontSize:10,fontWeight:700,padding:"2px 8px",borderRadius:10,border:"1px solid rgba(52,211,153,.2)"}}>{opt.pay}</span>
+                        <span style={{color:"rgba(110,231,183,.45)",fontSize:10,fontWeight:500,alignSelf:"center"}}>{opt.hrs}</span>
+                      </div>
+                      <p style={{color:"rgba(110,231,183,.6)",fontSize:12,lineHeight:1.6,margin:0}}>{opt.desc}</p>
+                    </div>
+                  ))}
+                </div>
+                {EL("pos")}
               </div>
+              <div><FL text="Years Exp."/><input type="number" min="0" max="60" value={f.yr} onChange={e=>up("yr",e.target.value)} placeholder="0" style={IS("yr")} onFocus={()=>setFoc("yr")} onBlur={()=>setFoc(null)}/></div>
               <div><FL text="Availability *"/><textarea value={f.av} onChange={e=>up("av",e.target.value.slice(0,300))} rows={2} placeholder="e.g. Flexible, weekdays open, weekends after noon" style={{...IS("av"),resize:"vertical",minHeight:70}} onFocus={()=>setFoc("av")} onBlur={()=>setFoc(null)}/>{EL("av")}</div>
             </div>
             <FD label="About You"/>
