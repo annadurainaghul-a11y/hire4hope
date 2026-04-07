@@ -1,0 +1,292 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&display=swap');
+
+
+@layer base {
+  :root {
+    --background: 38 35% 97%;
+    --foreground: 220 20% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 12%;
+
+    --primary: 153 55% 22%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 38 25% 93%;
+    --secondary-foreground: 153 55% 22%;
+
+    --muted: 30 15% 93%;
+    --muted-foreground: 220 10% 45%;
+
+    --accent: 38 70% 55%;
+    --accent-foreground: 220 20% 12%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 30 15% 88%;
+    --input: 30 15% 88%;
+    --ring: 153 55% 22%;
+
+    --radius: 0.75rem;
+
+    /* Hope Coffee custom tokens */
+    --hope-green: 153 55% 22%;
+    --hope-green-light: 153 40% 38%;
+    --hope-green-dim: 153 30% 95%;
+    --hope-cream: 38 35% 97%;
+    --hope-warm: 30 20% 94%;
+    --hope-gold: 38 70% 55%;
+    --hope-brown: 25 50% 22%;
+    --hope-hero: linear-gradient(155deg, hsl(153 55% 12%) 0%, hsl(153 50% 18%) 30%, hsl(140 45% 24%) 60%, hsl(153 55% 28%) 85%, hsl(153 60% 16%) 100%);
+
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.06);
+    --shadow-md: 0 4px 16px rgba(0,0,0,0.06), 0 2px 4px rgba(0,0,0,0.04);
+    --shadow-lg: 0 12px 40px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.04);
+    --shadow-xl: 0 20px 60px rgba(0,0,0,0.1), 0 8px 20px rgba(0,0,0,0.06);
+
+    --sidebar-background: 38 30% 97%;
+    --sidebar-foreground: 220 15% 30%;
+    --sidebar-primary: 153 55% 22%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 153 20% 95%;
+    --sidebar-accent-foreground: 153 55% 22%;
+    --sidebar-border: 30 15% 88%;
+    --sidebar-ring: 153 55% 22%;
+  }
+
+  .dark {
+    --background: 220 20% 6%;
+    --foreground: 38 20% 95%;
+    --card: 220 18% 10%;
+    --card-foreground: 38 20% 95%;
+    --popover: 220 18% 10%;
+    --popover-foreground: 38 20% 95%;
+    --primary: 153 50% 45%;
+    --primary-foreground: 220 20% 6%;
+    --secondary: 220 15% 15%;
+    --secondary-foreground: 38 20% 95%;
+    --muted: 220 15% 15%;
+    --muted-foreground: 220 10% 60%;
+    --accent: 38 60% 50%;
+    --accent-foreground: 38 20% 95%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 15% 18%;
+    --input: 220 15% 18%;
+    --ring: 153 50% 45%;
+    --sidebar-background: 220 18% 8%;
+    --sidebar-foreground: 38 20% 90%;
+    --sidebar-primary: 153 50% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 15% 14%;
+    --sidebar-accent-foreground: 38 20% 90%;
+    --sidebar-border: 220 15% 16%;
+    --sidebar-ring: 153 50% 45%;
+  }
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    background: hsl(38 35% 97%);
+    color: hsl(220 20% 12%);
+    font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* ── Animations ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes pulseRing {
+  0% { box-shadow: 0 0 0 0 hsl(153 55% 22% / 0.35); }
+  70% { box-shadow: 0 0 0 16px hsl(153 55% 22% / 0); }
+  100% { box-shadow: 0 0 0 0 hsl(153 55% 22% / 0); }
+}
+@keyframes popIn {
+  0% { transform: scale(0.3); opacity: 0; }
+  60% { transform: scale(1.06); }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes slideL {
+  from { opacity: 0; transform: translateX(-10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes chatPop {
+  from { opacity: 0; transform: scale(0.85) translateY(14px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+@keyframes msgIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes dot {
+  0%, 80%, 100% { transform: scale(0.4); opacity: 0.3; }
+  40% { transform: scale(1); opacity: 1; }
+}
+@keyframes checkDraw {
+  from { stroke-dashoffset: 50; }
+  to { stroke-dashoffset: 0; }
+}
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0); }
+  25% { transform: rotate(-8deg); }
+  75% { transform: rotate(8deg); }
+}
+@keyframes overlayIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes textUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes confetti {
+  0% { transform: translateY(-10px) rotate(0); opacity: 1; }
+  100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+}
+@keyframes pulse2 {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+@keyframes bgFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ── Utility classes ── */
+@layer utilities {
+  .animate-fade-up {
+    animation: fadeUp 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
+  .animate-scale-in {
+    animation: scaleIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  }
+  .animate-float {
+    animation: floatY 4s ease-in-out infinite;
+  }
+  .animate-spin-slow {
+    animation: spin 0.7s linear infinite;
+  }
+  .animate-shimmer {
+    animation: shimmer 1.5s linear infinite;
+  }
+  .animate-chat-pop {
+    animation: chatPop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  }
+  .animate-msg-in {
+    animation: msgIn 0.25s ease both;
+  }
+  .animate-pop-in {
+    animation: popIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  }
+  .animate-overlay-in {
+    animation: overlayIn 0.4s ease both;
+  }
+  .animate-bg-flow {
+    background-size: 400% 400%;
+    animation: bgFlow 16s ease infinite;
+  }
+  .animate-wiggle {
+    animation: wiggle 0.5s ease;
+  }
+  .animate-pulse-ring {
+    animation: pulseRing 2.5s ease-out 0.9s;
+  }
+
+  .hope-hero-bg {
+    background: var(--hope-hero);
+  }
+
+  .btn-shine {
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-shine::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+    left: -80%;
+    width: 60%;
+    transition: left 0.5s;
+    pointer-events: none;
+    z-index: 2;
+  }
+  .btn-shine:hover::after {
+    left: 120%;
+  }
+
+  .card-hover {
+    @apply transition-all duration-200;
+  }
+  .card-hover:hover {
+    @apply -translate-y-0.5;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .row-hover {
+    @apply transition-all duration-150;
+  }
+  .row-hover:hover {
+    @apply translate-x-0.5;
+  }
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(153 55% 22% / 0.2);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(153 55% 22% / 0.35);
+}
+
+/* ── Responsive helpers ── */
+@media (max-width: 768px) {
+  .dashboard-layout { flex-direction: column !important; }
+  .dashboard-sidebar { 
+    width: 100% !important; 
+    max-height: 300px; 
+    border-right: none !important; 
+    border-bottom: 1px solid hsl(var(--border)); 
+  }
+  .dashboard-detail { padding: 14px !important; }
+  .grid-responsive { grid-template-columns: 1fr !important; }
+  .hero-title { font-size: 30px !important; }
+  .form-container { padding: 20px 14px !important; margin-top: -20px !important; }
+  .nav-label { display: none !important; }
+  .stats-grid { grid-template-columns: 1fr 1fr !important; }
+}
+@media (max-width: 480px) {
+  .hero-title { font-size: 22px !important; }
+  .dashboard-detail { padding: 8px 6px !important; }
+}
